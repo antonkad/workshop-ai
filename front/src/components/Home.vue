@@ -56,7 +56,7 @@
                     }]
                 };
 
-                axios.post(`https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDiHmPdbXDvO436KevveSYXlRLNa2ChtMs`, json)
+                axios.post(`https://vision.googleapis.com/v1/images:annotate?key=`, json)
                 .then(response => {
                     // reponse.data -> le retour de Google vision
                     console.log(response.data);
