@@ -1,6 +1,6 @@
 <template>  
     <div>
-        <router-link @click="setStart" to="/home" tag="button">Appuyer pour commencer</router-link>
+        <md-button class="md-raised md-primary" v-on:click="greet">Appuyer pour commencer</md-button>
     </div>
 </template>
 
@@ -13,10 +13,18 @@
         computed: mapGetters([
             'startTime'
         ]),
-        methods: mapActions([
-            'setStart'
-        ])       
+        methods: {
+            ...mapActions(['setStart']),
+            greet() {
+                this.$store.dispatch('setStart')
+                router.push('home');
+            }
+        }
+                   
     }
+    
+
+
 </script>
 
 <style scoped>

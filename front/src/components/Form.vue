@@ -1,5 +1,13 @@
 <template>  
     <div>
+        
+        <md-button class="md-fab home" @click="goBackHome">
+          <md-icon>home</md-icon>
+        </md-button>
+        <md-button class="md-fab back" @click="goBack">
+          <md-icon>arrow_back</md-icon>
+        </md-button>
+
         <form class="vue-form" @submit.prevent="submit">
 
         <div class="error-message">
@@ -82,7 +90,9 @@
   </div>
 </template>
 <script>
+    import router from '../router'
     
+
 var emailRegExp = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 export default {
     name: 'Stats',
@@ -107,6 +117,12 @@ export default {
     };
   },
   methods: {
+    goBackHome: function() {
+      router.push('home');
+    },
+    goBack: function() {      
+      router.go(-1);
+    },
     // submit form handler
     submit: function() {
       this.submitted = true;
@@ -165,6 +181,17 @@ html,
 body,
 .container {
   min-height: 100vh;
+}
+
+.home{
+  position:absolute;
+  right:2%;
+  top:2%;
+}
+.back{
+  position:absolute;
+  left:2%;
+  top:2%;
 }
 
 .center {

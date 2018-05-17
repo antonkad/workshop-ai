@@ -5,6 +5,20 @@
         <video ref="video" id="video" width="640" height="480" autoplay></video>
         <button id="snap" v-on:click="capture()">Snap Photo</button>
         <canvas ref="canvas" id="canvas" width="640" height="480"></canvas>
+        
+
+        <md-card>
+            <img src="../assets/logo.png">
+            <md-card-header>
+                <div class="md-title">Demo Workshop Pôle Emploi</div>
+                <div class="md-subhead">par le groupe Nostromo I4 à Lille</div>
+
+                    <md-button class="md-raised md-primary" to="/form">Formulaire</md-button>
+                    <md-button class="md-raised md-primary" to="/page-one">Une Page</md-button>
+                    <md-button class="md-raised md-primary" to="/page-two">Une Autre Page</md-button>
+
+            </md-card-header>   
+        </md-card>    
 
         <Stats/>
     </div>
@@ -72,5 +86,13 @@
 </script>
 
 <style scoped>
-
+    .md-card {
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+    }
+    .md-button {
+        margin-top: 30px;
+    }
 </style>

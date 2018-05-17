@@ -2,6 +2,9 @@
     <div class="statsContainer">
         <h3>Donnée comportement utilisateur</h3>
         <a>Début: {{ startTime }}</a>
+        <a>Moyenne du temps entre chaque clicks: {{ averageTimeBetweenClicks }}</a>
+        <a>Retour Acceuil: {{ homeReturn }}</a>
+        <a>Retour Page precedente: {{ backAction }}</a>
     </div>
     
     
@@ -12,7 +15,8 @@
     export default {
         name: 'Stats',
         computed: mapGetters({
-            startTime: 'startTime'
+            startTime: 'startTime',
+            averageTimeBetweenClicks: 'averageTimeBetweenClicks'
         }),
         methods: mapActions([
             'setStart'
