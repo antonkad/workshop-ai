@@ -7,6 +7,8 @@
 <script>
   import router from './router'
   import { mapGetters, mapActions } from 'vuex'
+  import VueMaterial from 'vue-material'
+  import 'vue-material/dist/vue-material.css'
 
   export default {
     name: 'app',
@@ -50,7 +52,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  
+  background-color: #f0f0f054;
   position: absolute;
   width: 100%;
   height: 100%;

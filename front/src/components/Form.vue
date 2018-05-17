@@ -118,9 +118,11 @@ export default {
   },
   methods: {
     goBackHome: function() {
+      this.$store.dispatch('incrementBackHome')      
       router.push('home');
     },
-    goBack: function() {      
+    goBack: function() {  
+      this.$store.dispatch('incrementBack')          
       router.go(-1);
     },
     // submit form handler

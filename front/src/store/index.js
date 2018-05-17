@@ -11,7 +11,10 @@ const state = {
   timeClicksGap: [],
   averageTimeBetweenClicks: 0,
   homeReturn: 0,
-  backAction: 0
+  backAction: 0,
+  personInFront: "Prendre une photo",
+  angerLikelihood: "nsp",
+  surpriseLikelihood: "nsp"
 }
 
 // mutations are operations that actually mutates the state.
@@ -29,6 +32,15 @@ const mutations = {
     },
     incrementBack () {
         state.backAction++
+    },
+    setPersonInFront(state, response){
+        state.personInFront = response;
+    },
+    setAngerLikelihood(state, response){
+        state.angerLikelihood = response;
+    },
+    setSurpriseLikelihood(state, response){
+        state.surpriseLikelihood = response;
     },    
     setAverageTimeClicks(state, time){       
         if(state.timeClicksGap.length == 0){
@@ -53,19 +65,38 @@ const actions = {
     incrementBackHome ({ commit }) {        
         commit('incrementBackHome')    
     },
+    incrementBack ({ commit }) {        
+        commit('incrementBack')    
+    },
     setStart ({ commit }) {        
         commit('setStartTime')    
     },
     setAverageTime ({ commit, state }, time) {        
         commit('setAverageTimeClicks', time);
-    }
+    },    
+    setPersonInFront ({ commit, state }, response) {
+        commit('setPersonInFront', response);
+    },
+    setAngerLikelihood ({ commit, state }, response) {        
+        console.log("setPersonInFront", response)
+
+        commit('setAngerLikelihood', response);
+    },
+    setSurpriseLikelihood ({ commit, state }, response) {   
+        console.log("setPersonInFront", response)
+     
+        commit('setSurpriseLikelihood', response);
+    },
 }
 // getters
 const getters = {
     startTime: state => state.startTime,
     averageTimeBetweenClicks: state => state.averageTimeBetweenClicks,
     homeReturn: state => state.homeReturn,
-    backAction: state => state.backAction
+    backAction: state => state.backAction,
+    personInFront: state => state.personInFront,
+    angerLikelihood: state => state.angerLikelihood,
+    surpriseLikelihood: state => state.surpriseLikelihood
 }
 
 // A Vuex instance is created by combining the state, mutations, actions,
