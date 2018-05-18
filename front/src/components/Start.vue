@@ -11,7 +11,11 @@
     import 'vue-material/dist/vue-material.css'
     import { mapGetters, mapActions } from 'vuex'
 
+    import NeuralNetwork from '../neural_network';
+    const neuralNet = new NeuralNetwork();
     
+    //console.log(NeuralNetwork.init());
+
     export default {
         name: 'Start',
         computed: mapGetters([

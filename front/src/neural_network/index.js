@@ -1,7 +1,37 @@
-import json from '../../echantillon.json';
+import json from '../../../echantillon.json';
+import * as tf from '@tensorflow/tfjs';
 
-export class NeuralNetwork {
+export default class NeuralNetwork {
+      
 
+    constructor(){
+      const LEARNING_RATE = 0.15;
+      const optimizer = tf.train.sgd(LEARNING_RATE);
+
+      this.model = tf.sequential()
+      this.model.add(tf.layers.dense({units:20, inputShape:1, activation: 'tanh', useBias: false}))
+      this.model.add(tf.layers.dense({units:1, activation: 'sigmoid', useBias: false}))
+      this.model.compile({optimizer: optimizer, loss: 'meanSquaredError'})
+
+      const x = [[0,0],[0,1],[1,0],[1,1]];
+      const y = [[0],[1],[1],[0]];
+
+      this.train(x, y);
+    }
+    async train(x, y) {
+      for(let i = 0; i < 1; i++){
+  
+        for(let i = 0; i < x.length; i++){
+          console.log(x[i], y[i])
+          const h = await this.model.fit(tf.tensor1d(x[i]), tf.tensor1d(y[i]),
+            {epochs: 1} 
+          );
+          //console.log( " loss:  " + h.history.loss[0] );
+        }    
+        console.log("------------")
+      }
+    }
+}
      /*
 
     async function test() {
@@ -166,4 +196,3 @@ export class NeuralNetwork {
 
     model.predict(xs).print()
 */
-}
